@@ -14,7 +14,9 @@ public class MemberApp {
      */
     public static void main(String[] args) {
 
-        MemberService memberService = new MemberServiceImpl();
+        AppConfig appConfig = new AppConfig();
+        // appConfig에서 객체를 결정하고 넘겨준다.
+        MemberService memberService = appConfig.memberService();
         Member member = new Member(1L, "memberA", Grade.VIP);
         memberService.join(member);
 

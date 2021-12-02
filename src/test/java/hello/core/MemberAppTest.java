@@ -5,13 +5,21 @@ import hello.core.member.Member;
 import hello.core.member.MemberService;
 import hello.core.member.MemberServiceImpl;
 import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class MemberAppTest {
 
-    MemberService memberService = new MemberServiceImpl();
+    MemberService memberService;
+
+    // 각 테스트가 실행전 이 메서드가 실행된다.
+    @BeforeEach
+    public void before() {
+        AppConfig appConfig = new AppConfig();
+        memberService = appConfig.memberService();
+    }
 
     @Test
     void main() {
