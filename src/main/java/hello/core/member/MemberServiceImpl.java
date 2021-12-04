@@ -1,5 +1,9 @@
 package hello.core.member;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+@Component
 public class MemberServiceImpl implements MemberService {
 
     private final MemberRepository memberRepository;
@@ -9,6 +13,7 @@ public class MemberServiceImpl implements MemberService {
         해당 클래스는 인터페이스에만 의존하게 된다. (추상화, DIP)
         구체적인 구현체가 뭔지는 모른다.
      */
+    @Autowired
     public MemberServiceImpl(MemberRepository memberRepository) {
         this.memberRepository = memberRepository;
     }

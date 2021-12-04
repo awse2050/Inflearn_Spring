@@ -6,8 +6,11 @@ import hello.core.discount.RateDiscountPolicy;
 import hello.core.member.Member;
 import hello.core.member.MemberRepository;
 import hello.core.member.MemoryMemberRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 // 주문 인터페이스 구현체 (클라이언트 코드)
+@Component
 public class OrderServiceImpl implements OrderService {
 
     private final MemberRepository memberRepository;
@@ -30,6 +33,7 @@ public class OrderServiceImpl implements OrderService {
         생성자를 통해 구체적인 객체를 주입받음으로서 추상에만 의존하게 변경된다.
         어떤 정책을 실행하는지는 해당 클래스에서 알지 못한다.
      */
+    @Autowired
     public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
         this.memberRepository = memberRepository;
         this.discountPolicy = discountPolicy;
