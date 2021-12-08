@@ -33,7 +33,7 @@ public class OrderServiceImpl implements OrderService {
         생성자를 통해 구체적인 객체를 주입받음으로서 추상에만 의존하게 변경된다.
         어떤 정책을 실행하는지는 해당 클래스에서 알지 못한다.
      */
-    @Autowired
+    @Autowired // 생성자 주입의 경우 생성자가 1개이면 생략해도 된다.
     public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
         this.memberRepository = memberRepository;
         this.discountPolicy = discountPolicy;
